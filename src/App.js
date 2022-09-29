@@ -12,7 +12,7 @@ function App() {
   return (
     <>
     <Hading setAddItem={setAddItem} />
-    <Body OpenMod={setOpenItemModal} setOpenItemModal={setOpenItemModal} addItem={addItem} />
+    <Body OpenMod={setOpenItemModal} setOpenItemModal={setOpenItemModal} addItem={addItem} setAddItem={setAddItem} />
     <Foot/>
     {openItrmModal?<ItemModal setOpenItemModal={setOpenItemModal} />:""}
     </>

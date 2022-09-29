@@ -17,8 +17,8 @@ import SurchWithSelect from "./SurchbarWithselect";
 import AddedItems from "./AddedItems";
 import ItemButtons from "./ItemButtons";
 import NoContect from "./NoContect";
-
-const Body = ({ OpenMod, setOpenItemModal, addItem }) => {
+import AddItem from "../AddItemForm/AddItem";
+const Body = ({ OpenMod, setOpenItemModal, addItem,setAddItem }) => {
   const [customerSurh, setCustomerSurch] = useState(true);
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
@@ -41,7 +41,7 @@ const Body = ({ OpenMod, setOpenItemModal, addItem }) => {
       <BodyEditPanelContainer container>
         <h2 style={{ textAlign: "center" }}> Panal </h2>
         {addItem ? (
-          ""
+          <AddItem  setAddItem={setAddItem}/>
         ) : (
           <EditPanel>
             <FormControl>
