@@ -7,7 +7,7 @@ import { FcCompactCamera } from "react-icons/fc";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Input from "@material-ui/core/Input";
+
 import { TbCurrencyRupee } from "react-icons/tb";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -52,7 +52,7 @@ const AddItem = ({ setAddItem }) => {
     setAddItemData.itemtype(event.target.value)
   };
   return (
-    <AddItemContainer>
+    <AddItemContainer    >
       <ImgInputContainer>
         <IconButton
           color="primary"

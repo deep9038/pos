@@ -6,12 +6,30 @@ import {BsClockHistory} from "react-icons/bs";
 import Button from "@material-ui/core/Button";
 import {IoFastFoodOutline} from 'react-icons/io5'
 import AddOn from "./AddonModal/AddOn";
+import {BiCategoryAlt} from 'react-icons/bi'
+import AddCatagory from "./Addcatagory/AddCatagory";
+
 const Hading = ({setAddItem}) => {
   const [ openAddon,setopenAddon]=useState(false)
+  const [addCat,setAddCat]=useState(false)
   return (
     <Head>
       <HeadLogo src={Logo} />
       <HadingMau>
+      <HeadmenuItem onClick={()=>setAddCat(true)}>
+      <Button
+            variant="contained"
+            color="primary"
+            startIcon={<BiCategoryAlt/>}
+            
+          >
+            Add Catagory
+          </Button>
+      </HeadmenuItem>
+      {addCat?<AddCatagory setAddCat={setAddCat}/>:''}
+
+
+
       <HeadmenuItem onClick={()=>setopenAddon(true)}>
       <Button
             variant="contained"
