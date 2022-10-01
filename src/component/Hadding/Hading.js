@@ -10,6 +10,7 @@ import {BiCategoryAlt} from 'react-icons/bi'
 import AddCatagory from "./Addcatagory/AddCatagory";
 
 const Hading = ({setAddItem}) => {
+  
   const [ openAddon,setopenAddon]=useState(false)
   const [addCat,setAddCat]=useState(false)
   return (

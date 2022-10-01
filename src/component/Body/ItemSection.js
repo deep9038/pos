@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import Chip from '@material-ui/core/Chip';
 // import Button from "@material-ui/core/Button";
 // import {AiFillFileAdd} from 'react-icons/ai'
-const ItemSection = ({OpenMod}) => {
+const ItemSection = ({OpenMod ,surch}) => {
   const [items, setItems] = useState([
     {
       id: 1,
@@ -105,7 +105,7 @@ const ItemSection = ({OpenMod}) => {
     <ItemContainer>
       <ItemContainerOverFlow>
         {items
-          .filter((item) => item.Availability === true)
+          .filter((item) => item.Availability === true).filter((item)=>item.Name.includes(surch))
           .map((filtered, ind) => {
             return (
               <Card key={ind} style={{ margin: "5px", height: "170px",marginBottom:'20px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>

@@ -22,6 +22,7 @@ const Body = ({ OpenMod, setOpenItemModal, addItem,setAddItem }) => {
   const [customerSurh, setCustomerSurch] = useState(true);
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
+  const [surch,setSurch]=useState('')
   const HandelRadio = (e) => {
     setAdd(e.target.value);
     if (e.target.value === "Customar") {
@@ -34,8 +35,8 @@ const Body = ({ OpenMod, setOpenItemModal, addItem,setAddItem }) => {
   return (
     <BodyDiv>
       <BodyItemPanelContainer container>
-        <Surchbar />
-        <ItemSection OpenMod={OpenMod} />
+        <Surchbar setSurch={setSurch} surch={surch}/>
+        <ItemSection OpenMod={OpenMod} surch={surch} />
       </BodyItemPanelContainer>
 
       <BodyEditPanelContainer container>
