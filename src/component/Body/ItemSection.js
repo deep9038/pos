@@ -19,87 +19,87 @@ const ItemSection = ({OpenMod ,surch}) => {
       Availability: true,
       Image:
         "https://media.istockphoto.com/photos/close-up-of-a-fish-and-chips-platter-with-dipping-sauce-picture-id182690390?b=1&k=20&m=182690390&s=170667a&w=0&h=YCRD3Qe2FnRHeGr7Rf7JWqZnRv13b0nn0UELFM6g0dk=",
-    },
-    {
-      id: 2,
-      Name: "Chatni",
-      Price: "10",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/indian-chatni-image-close-up-picture-id1361909046?b=1&k=20&m=1361909046&s=170667a&w=0&h=NyGl8tngJ50QXJa5r9tJFlbUKC_ndghvXiiYp3099_o=",
-    },
-    {
-      id: 3,
-      Name: "Choumin",
-      Price: "70",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/homemade-indochinese-recipe-schezwan-noodles-or-vegetable-hakka-or-picture-id1399868627?b=1&k=20&m=1399868627&s=170667a&w=0&h=puPRhSg3rFqrhQbo92ZkBhFPOE4Jwg_1nuffsY9xSW8=",
-    },
-    {
-      id: 4,
-      Name: "biriany",
-      Price: "200",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/chicken-biriyani-picture-id1345624336?b=1&k=20&m=1345624336&s=170667a&w=0&h=twUdtaXYy5VPB0-tdRHcqgC4C5WNSFUgcNBPILowg5g=",
-    },
-    {
-      id: 5,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 6,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 7,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 8,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 9,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 10,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
-    {
-      id: 11,
-      Name: "Rosted Chiken",
-      Price: "500",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    },
+    }
+    // {
+    //   id: 2,
+    //   Name: "Chatni",
+    //   Price: "10",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/indian-chatni-image-close-up-picture-id1361909046?b=1&k=20&m=1361909046&s=170667a&w=0&h=NyGl8tngJ50QXJa5r9tJFlbUKC_ndghvXiiYp3099_o=",
+    // },
+    // {
+    //   id: 3,
+    //   Name: "Choumin",
+    //   Price: "70",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/homemade-indochinese-recipe-schezwan-noodles-or-vegetable-hakka-or-picture-id1399868627?b=1&k=20&m=1399868627&s=170667a&w=0&h=puPRhSg3rFqrhQbo92ZkBhFPOE4Jwg_1nuffsY9xSW8=",
+    // },
+    // {
+    //   id: 4,
+    //   Name: "biriany",
+    //   Price: "200",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/chicken-biriyani-picture-id1345624336?b=1&k=20&m=1345624336&s=170667a&w=0&h=twUdtaXYy5VPB0-tdRHcqgC4C5WNSFUgcNBPILowg5g=",
+    // },
+    // {
+    //   id: 5,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 6,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 7,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 8,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 9,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 10,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
+    // {
+    //   id: 11,
+    //   Name: "Rosted Chiken",
+    //   Price: "500",
+    //   Availability: true,
+    //   Image:
+    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
+    // },
   ]);
   return (
     <ItemContainer>

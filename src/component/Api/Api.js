@@ -1,3 +1,6 @@
+import axios from "axios";
 
-const url = 'http://192.168.29.146:2000'
+export const baseAxios=axios.create({
+    baseURL: "http://192.168.29.146:2000" 
+  });
 

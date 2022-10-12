@@ -10,14 +10,14 @@ import {BiCategoryAlt} from 'react-icons/bi'
 import AddCatagory from "./Addcatagory/AddCatagory";
 
 const Hading = ({setAddItem}) => {
-  
+  const [ opencart,setOpenCart]=useState(false)
   const [ openAddon,setopenAddon]=useState(false)
-  const [addCat,setAddCat]=useState(false)
+
   return (
     <Head>
       <HeadLogo src={Logo} />
       <HadingMau>
-      <HeadmenuItem onClick={()=>setAddCat(true)}>
+      <HeadmenuItem onClick={()=>setOpenCart(true)}>
       <Button
             variant="contained"
             color="primary"
@@ -27,7 +27,7 @@ const Hading = ({setAddItem}) => {
             Add Catagory
           </Button>
       </HeadmenuItem>
-      {addCat?<AddCatagory setAddCat={setAddCat}/>:''}
+      {opencart?<AddCatagory setOpenCart={setOpenCart}/>:''}
 
 
 
@@ -41,7 +41,7 @@ const Hading = ({setAddItem}) => {
             Add Addon
           </Button>
       </HeadmenuItem>
-      {openAddon? <AddOn  setopenAddon={setopenAddon}/>:''}
+      {openAddon? <AddOn setopenAddon={setopenAddon} />:''}
       
         <HeadmenuItem>
           <Button

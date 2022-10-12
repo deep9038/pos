@@ -18,7 +18,7 @@ import AddedItems from "./AddedItems";
 import ItemButtons from "./ItemButtons";
 import NoContect from "./NoContect";
 import AddItem from "../AddItemForm/AddItem";
-const Body = ({ OpenMod, setOpenItemModal, addItem,setAddItem }) => {
+const Body = ({ OpenMod, addItem,setAddItem,SubmitItem}) => {
   const [customerSurh, setCustomerSurch] = useState(true);
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
@@ -42,7 +42,7 @@ const Body = ({ OpenMod, setOpenItemModal, addItem,setAddItem }) => {
       <BodyEditPanelContainer container>
         <h2 style={{ textAlign: "center" }}> Panal </h2>
         {addItem ? (
-          <AddItem  setAddItem={setAddItem}/>
+          <AddItem SubmitItem={SubmitItem} setAddItem={setAddItem}/>
         ) : (
           <EditPanel>
             <FormControl>

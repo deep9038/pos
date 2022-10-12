@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { AddItemContainer, ImgInputContainer } from "./AddItemEliment";
 import TextField from "@material-ui/core/TextField";
@@ -14,50 +14,68 @@ import FormGroup from "@material-ui/core/FormGroup";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
-import AddOn from "../Hadding/AddonModal/AddOn";
-const AddItem = ({ setAddItem }) => {
-  const [additemImg,setAddItemIg]=useState()
-  const [additemName,setAdditemName]=useState()
-  const [additemPrice,setAddItemPrice]=useState()
-  const [addItemType,setItemType]=useState()
-  const [addAdon,setAddAddon]=useState([])
-  const handlitemTye =(e)=>{
-    setItemType(e.target.value)
+
+const AddItem = ({ setAddItem, SubmitItem }) => {
+  const [additemImg, setAddItemIg] = useState();
+  const [additemName, setAdditemName] = useState();
+  const [additemPrice, setAddItemPrice] = useState();
+  const [addItemType, setItemType] = useState();
+  const [addAdon, setAddAddon] = useState([]);
+  const [ctagoryes, setCtagoryes] = useState();
+  const [selectCat, setSelectCat] = useState("");
+  const baseURL = "http://192.168.29.146:2000/api/addCategory";
+
+  const handlitemTye = (e) => {
+    setItemType(e.target.value);
     console.log(e.target.value);
-  }
-  const handelcheboxdta = (e)=>{
-    let ischerd=e.target.checked
-    if(ischerd){
-      setAddAddon([...addAdon,e.target.value])
-    }else{
-      setAddAddon(
-        addAdon.filter((item)=>item !== item)
-      )
+  };
+  const handelcheboxdta = (e) => {
+    let ischerd = e.target.checked;
+    if (ischerd) {
+      setAddAddon([...addAdon, e.target.value]);
+    } else {
+      setAddAddon(addAdon.filter((item) => item !== item));
     }
-  }
+  };
 
+  const HandelPostAddItem = () => {
+    setAddItem(false);
+    SubmitItem();
+  };
+  useEffect(() => {
+    axios.get(baseURL).then((res) => {
+      console.log(res.data.result[0]);
+      setCtagoryes(res.data.result);
+    });
+  }, []);
 
-  const HandelPostAddItem=()=>{
-       
-  }
- 
+  const handleChangeca = (e) => {
+    setSelectCat(e.target.value)
+
+  };
+
   return (
-    <AddItemContainer    >
+    <AddItemContainer>
       <ImgInputContainer>
         <IconButton
           color="primary"
           aria-label="upload picture"
           component="label"
         >
-          <input hidden accept=" image " type="file" onChange={(e)=>setAddItemIg(e.target.files[0])}/>
+          <input
+            hidden
+            accept=" image "
+            type="file"
+            onChange={(e) => setAddItemIg(e.target.files[0])}
+          />
           <FcCompactCamera size={30} />
         </IconButton>
         <TextField
-        onChange={(e)=>setAdditemName(e.target.value)}
-        value={additemName}
+          onChange={(e) => setAdditemName(e.target.value)}
+          value={additemName}
           label="Item Name"
           variant="outlined"
           style={{ width: "100%" }}
@@ -74,7 +92,7 @@ const AddItem = ({ setAddItem }) => {
           }}
         >
           <TextField
-            onChange={(e)=>setAddItemPrice(e.target.value)}
+            onChange={(e) => setAddItemPrice(e.target.value)}
             style={{ width: "40%" }}
             label="Price"
             value={additemPrice}
@@ -89,8 +107,8 @@ const AddItem = ({ setAddItem }) => {
             }}
             variant="outlined"
           />
-          <FormControl style={{width:'40%'}}>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <FormControl style={{ width: "40%" }}>
+            <InputLabel id="demo-simple-select-label">Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -98,52 +116,64 @@ const AddItem = ({ setAddItem }) => {
               label="Age"
               value={addItemType}
             >
-              <MenuItem value={'Veg'} >Veg</MenuItem>
-              <MenuItem  value={'Non-Veg'}>Non-Veg</MenuItem>
-              
+              <MenuItem value={"Veg"}>Veg</MenuItem>
+              <MenuItem value={"Non-Veg"}>Non-Veg</MenuItem>
             </Select>
           </FormControl>
         </FormControl>
       </ImgInputContainer>
+
+      {/* catoption  */}
+      <FormControl fullWidth style={{ marginBottom: "10px" }}>
+        <InputLabel id="demo-simple-select-label">Cetogries</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-multiple-name"
+          value={selectCat}
+          label="Cataory"
+          onChange={handleChangeca}
+        >
+          
+          {ctagoryes.map((item)=>{
+            return(
+              <MenuItem value={item.categoryName} key={item.id}>{item.categoryName}</MenuItem>
+            )
+          })}
+          
+        </Select>
+      </FormControl>
+
       <FormControl component="fieldset">
         <FormLabel component="legend">Addon Item</FormLabel>
         <FormGroup aria-label="position" row>
           <FormControlLabel
-            
             value="chatni"
-            control={<Checkbox value='chatni' onChange={handelcheboxdta}/>}
+            control={<Checkbox value="chatni" onChange={handelcheboxdta} />}
             label="chatni"
             labelPlacement="end"
           />
           <FormControlLabel
-           
             value="soce"
-            control={<Checkbox value='soce' onChange={handelcheboxdta} />}
+            control={<Checkbox value="soce" onChange={handelcheboxdta} />}
             label="soce"
             labelPlacement="end"
           />
           <FormControlLabel
-           
             value="salad"
-            control={<Checkbox value='salad' onChange={handelcheboxdta} />}
+            control={<Checkbox value="salad" onChange={handelcheboxdta} />}
             label="salad"
             labelPlacement="end"
           />
           <FormControlLabel
-           
             value="coconut"
-            control={<Checkbox value='coconut' onChange={handelcheboxdta}/>}
+            control={<Checkbox value="coconut" onChange={handelcheboxdta} />}
             label="coconut"
             labelPlacement="end"
           />
         </FormGroup>
       </FormControl>
 
-      <Button
-        variant="contained"
-        color="standard"
-        onClick={ HandelPostAddItem}
-      >
+      <Button variant="contained" color="standard" onClick={HandelPostAddItem}>
         Success
       </Button>
     </AddItemContainer>

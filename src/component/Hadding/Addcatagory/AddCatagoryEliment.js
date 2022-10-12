@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Addcatagory =styled.div`
+export const Addcatagory =styled.form`
 position:absolute ;
 display:flex ;
 top:50px ;

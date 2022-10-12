@@ -10,7 +10,7 @@ const Foot = () => {
   const[mainValu,setMainValue]=useState() 
   const[chagValu,setChangValu]=useState()
   const[tax,setTax]=useState(10)
-  const[payebel,setpayabel]=useState(500)
+  const[payebel,setpayabel]=useState(344)
   const HandelAmount=(e)=>{
     setMainValue(e.target.value)
   }

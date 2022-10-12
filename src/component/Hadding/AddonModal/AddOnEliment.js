@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AddOnModalContainer=styled.div`
+export const AddOnModalContainer=styled.form`
 
 position:absolute ;
 display:flex ;
