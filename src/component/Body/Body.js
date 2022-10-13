@@ -18,7 +18,7 @@ import AddedItems from "./AddedItems";
 import ItemButtons from "./ItemButtons";
 import NoContect from "./NoContect";
 import AddItem from "../AddItemForm/AddItem";
-const Body = ({ OpenMod, addItem,setAddItem,SubmitItem}) => {
+const Body = ({ OpenMod, addItem,setAddItem,SubmitItem,ctagoryes,addOn}) => {
   const [customerSurh, setCustomerSurch] = useState(true);
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
@@ -36,13 +36,13 @@ const Body = ({ OpenMod, addItem,setAddItem,SubmitItem}) => {
     <BodyDiv>
       <BodyItemPanelContainer container>
         <Surchbar setSurch={setSurch} surch={surch}/>
-        <ItemSection OpenMod={OpenMod} surch={surch} />
+        <ItemSection OpenMod={OpenMod} surch={surch} ctagoryes={ctagoryes} />
       </BodyItemPanelContainer>
 
       <BodyEditPanelContainer container>
         <h2 style={{ textAlign: "center" }}> Panal </h2>
         {addItem ? (
-          <AddItem SubmitItem={SubmitItem} setAddItem={setAddItem}/>
+          <AddItem ctagoryes={ctagoryes} SubmitItem={SubmitItem} setAddItem={setAddItem} addOn={addOn}/>
         ) : (
           <EditPanel>
             <FormControl>

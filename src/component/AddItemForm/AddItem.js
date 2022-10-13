@@ -16,49 +16,92 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { FButton } from "../FormButtonEliment";
 import axios from "axios";
 
-const AddItem = ({ setAddItem, SubmitItem }) => {
+const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
   const [additemImg, setAddItemIg] = useState();
   const [additemName, setAdditemName] = useState();
   const [additemPrice, setAddItemPrice] = useState();
+  const [catid, setCatId] = useState();
   const [addItemType, setItemType] = useState();
   const [addAdon, setAddAddon] = useState([]);
-  const [ctagoryes, setCtagoryes] = useState();
-  const [selectCat, setSelectCat] = useState("");
-  const baseURL = "http://192.168.29.146:2000/api/addCategory";
+  const [selectCat, setSelectCat] = useState();
 
   const handlitemTye = (e) => {
     setItemType(e.target.value);
     console.log(e.target.value);
   };
+  let aindex= []
   const handelcheboxdta = (e) => {
+   
+    let id = e.target.id
+    console.log(id)
     let ischerd = e.target.checked;
     if (ischerd) {
-      setAddAddon([...addAdon, e.target.value]);
-    } else {
-      setAddAddon(addAdon.filter((item) => item !== item));
+      setAddAddon([...addAdon, e.target.id]);
+    }else{
+      let curret = addAdon.indexOf(id)
+     
+      aindex.push(curret)
+      console.log(aindex);
+      // for(var i=0;i<addAdon.length;i++){
+      //   if()
+      // }
+      addAdon.splice(curret,1)
+      
+      console.log(addAdon);
+      console.log(curret);
     }
   };
 
-  const HandelPostAddItem = () => {
-    setAddItem(false);
-    SubmitItem();
-  };
   useEffect(() => {
-    axios.get(baseURL).then((res) => {
-      console.log(res.data.result[0]);
-      setCtagoryes(res.data.result);
-    });
-  }, []);
+    console.log(addAdon);
+   
+    console.log(aindex)
+  }, [addAdon]);
 
-  const handleChangeca = (e) => {
-    setSelectCat(e.target.value)
+  const handleChangeca = (e, id) => {
+    setSelectCat(e.target.value);
+    setCatId(id.props.id);
+  };
 
+  const baseUrl = "http://192.168.29.146:2000";
+  const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+  const submitItem = (e) => {
+    e.preventDefault();
+    setAddItem(false);
+    console.log(selectCat);
+    console.log(addAdon);
+    let baalarArray = addAdon
+    axios
+      .post(
+        `${baseUrl}/api/addItem_post`,
+        {
+          Image: additemImg,
+          itemName: additemName,
+          itemCategory: catid,
+          itemAddOn:baalarArray,
+          itemType: addItemType,
+          itemPrice: additemPrice,
+        },
+        config
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   };
 
   return (
-    <AddItemContainer>
+    <AddItemContainer
+      method="post"
+      action="/api/addItem_post"
+      onSubmit={submitItem}
+    >
       <ImgInputContainer>
         <IconButton
           color="primary"
@@ -97,6 +140,7 @@ const AddItem = ({ setAddItem, SubmitItem }) => {
             label="Price"
             value={additemPrice}
             name="numberformat"
+            type="number"
             id="formatted-numberformat-input"
             InputProps={{
               startAdornment: (
@@ -125,57 +169,49 @@ const AddItem = ({ setAddItem, SubmitItem }) => {
 
       {/* catoption  */}
       <FormControl fullWidth style={{ marginBottom: "10px" }}>
-        <InputLabel id="demo-simple-select-label">Cetogries</InputLabel>
+        <InputLabel id="cilect-cat">Cetogries</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
+          labelId="cilect-cat"
           id="demo-multiple-name"
           value={selectCat}
           label="Cataory"
           onChange={handleChangeca}
         >
-          
-          {ctagoryes.map((item)=>{
-            return(
-              <MenuItem value={item.categoryName} key={item.id}>{item.categoryName}</MenuItem>
-            )
+          {ctagoryes.map((item) => {
+            return (
+              <MenuItem value={item.categoryName} id={item._id} key={item._id}>
+                {item.categoryName}
+              </MenuItem>
+            );
           })}
-          
         </Select>
       </FormControl>
 
       <FormControl component="fieldset">
         <FormLabel component="legend">Addon Item</FormLabel>
         <FormGroup aria-label="position" row>
-          <FormControlLabel
-            value="chatni"
-            control={<Checkbox value="chatni" onChange={handelcheboxdta} />}
-            label="chatni"
-            labelPlacement="end"
-          />
-          <FormControlLabel
-            value="soce"
-            control={<Checkbox value="soce" onChange={handelcheboxdta} />}
-            label="soce"
-            labelPlacement="end"
-          />
-          <FormControlLabel
-            value="salad"
-            control={<Checkbox value="salad" onChange={handelcheboxdta} />}
-            label="salad"
-            labelPlacement="end"
-          />
-          <FormControlLabel
-            value="coconut"
-            control={<Checkbox value="coconut" onChange={handelcheboxdta} />}
-            label="coconut"
-            labelPlacement="end"
-          />
+          {addOn.map((item) => {
+            return (
+              <FormControlLabel
+                value={item.addOnItemName}
+                control={
+                  <Checkbox
+                    value={item.addOnItemName}
+                    id={item._id}
+                    onChange={handelcheboxdta}
+                  />
+                }
+                label={item.addOnItemName}
+                labelPlacement="end"
+              />
+            );
+          })}
         </FormGroup>
       </FormControl>
 
-      <Button variant="contained" color="standard" onClick={HandelPostAddItem}>
-        Success
-      </Button>
+      <FButton type="submit" value="submit">
+        Submit
+      </FButton>
     </AddItemContainer>
   );
 };

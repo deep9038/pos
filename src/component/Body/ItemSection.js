@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 import { ItemContainer, ItemContainerOverFlow,ItemPrice, Veg } from "./ItemSectionEliment";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,124 +10,46 @@ import Typography from "@material-ui/core/Typography";
 import Chip from '@material-ui/core/Chip';
 // import Button from "@material-ui/core/Button";
 // import {AiFillFileAdd} from 'react-icons/ai'
-const ItemSection = ({OpenMod ,surch}) => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      Name: "FishFry",
-      Price: "50",
-      Availability: true,
-      Image:
-        "https://media.istockphoto.com/photos/close-up-of-a-fish-and-chips-platter-with-dipping-sauce-picture-id182690390?b=1&k=20&m=182690390&s=170667a&w=0&h=YCRD3Qe2FnRHeGr7Rf7JWqZnRv13b0nn0UELFM6g0dk=",
-    }
-    // {
-    //   id: 2,
-    //   Name: "Chatni",
-    //   Price: "10",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/indian-chatni-image-close-up-picture-id1361909046?b=1&k=20&m=1361909046&s=170667a&w=0&h=NyGl8tngJ50QXJa5r9tJFlbUKC_ndghvXiiYp3099_o=",
-    // },
-    // {
-    //   id: 3,
-    //   Name: "Choumin",
-    //   Price: "70",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/homemade-indochinese-recipe-schezwan-noodles-or-vegetable-hakka-or-picture-id1399868627?b=1&k=20&m=1399868627&s=170667a&w=0&h=puPRhSg3rFqrhQbo92ZkBhFPOE4Jwg_1nuffsY9xSW8=",
-    // },
-    // {
-    //   id: 4,
-    //   Name: "biriany",
-    //   Price: "200",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/chicken-biriyani-picture-id1345624336?b=1&k=20&m=1345624336&s=170667a&w=0&h=twUdtaXYy5VPB0-tdRHcqgC4C5WNSFUgcNBPILowg5g=",
-    // },
-    // {
-    //   id: 5,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 6,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 7,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 8,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 9,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 10,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-    // {
-    //   id: 11,
-    //   Name: "Rosted Chiken",
-    //   Price: "500",
-    //   Availability: true,
-    //   Image:
-    //     "https://media.istockphoto.com/photos/whole-rosted-chicken-with-cranberry-sauce-on-white-plate-on-wooden-picture-id1075355440?b=1&k=20&m=1075355440&s=170667a&w=0&h=C1V0AgiGxGx3TOlPhdlB8uIbY0MBAJTPmpTJNXRgtVA=",
-    // },
-  ]);
+const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
+  
+  const imgURL = "http://192.168.29.146:2000/";
+  
   return (
     <ItemContainer>
       <ItemContainerOverFlow>
-        {items
-          .filter((item) => item.Availability === true).filter((item)=>item.Name.includes(surch))
+        {ctagoryes.filter(item => item.Active === true).filter(item => item.categoryName.includes(surch))
           .map((filtered, ind) => {
             return (
-              <Card key={ind} style={{ margin: "5px", height: "170px",marginBottom:'20px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>
+              <Card key={ind} style={{ margin: "5px", height: "150px",width:"130px",marginBottom:'10px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="100"
-                    image={`${filtered.Image}`}
+                    height="50"
+                    width="50"
+                    image={`http://192.168.29.146:2000${filtered.categoryImage[0].path.slice(6)}`}
                     alt="fishfry Img"
                   />
-                  <CardContent style={{ padding: "0" }}>
+                  <CardContent style={{ padding: "0",height:"10px", }}>
                     <Typography
                       gutterBottom
                       variant="body2"
-                      style={{ marginleft: "5x",display:'flex',justifyContent:'center',alignItems:'center',marginTop:'5px' }}
+                      style={{ marginleft: "",display:'flex',justifyContent:'',alignItems:'center',marginTop:'5px',fontSize:"10px" }}
                       component="div"
                     >
-                      {filtered.Name}
+                      {filtered.categoryName}
                     </Typography>
-                    <ItemPrice>
-                    <Typography gutterBottom variant="h5" style={{marginBottom:'0',marginLeft:'15px'}}  component="div">
-                      ₹{filtered.Price}
+                    <h6 style={{margin:'0'}}>Category :-{filtered.Category}</h6>
+                    <Typography
+                      gutterBottom
+                      variant="body2"
+                      style={{ marginleft: "",display:'flex',justifyContent:'',alignItems:'center',marginTop:'5px',fontSize:"8px" }}
+                      component="div"
+                    >
+                       <p style={{margin:'0'}}>West bengal Famous food</p>
+                    </Typography>
+                    <ItemPrice style={{marginTop:"10px",backgroundColor:"rgba(0, 0, 0,0.4)",height:'50px'}}>
+                    <Typography gutterBottom variant="h5" style={{marginBottom:'0',marginLeft:'0',color:"white",fontSize:'12px',fontWeight:"bolder"}}  component="div">
+                     <span style={{color:"white",marginLeft:"8px",fontSize:"13px"}}> ₹ </span>400<span style={{backgroundColor:"blueviolet",color:"white",borderRadius:"10px",padding:"6px",marginLeft:'10px'}}>20% off</span> 
                     </Typography>
                   
                     <Veg>
