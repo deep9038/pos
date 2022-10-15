@@ -20,7 +20,7 @@ const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
         {ctagoryes.filter(item => item.Active === true).filter(item => item.categoryName.includes(surch))
           .map((filtered, ind) => {
             return (
-              <Card key={ind} style={{ margin: "5px", height: "150px",width:"130px",marginBottom:'10px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>
+              <Card key={ind} style={{ margin: "5px", height: "168px",width:"130px",marginBottom:'10px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>
                 <CardActionArea>
                   <CardMedia
                     component="img"

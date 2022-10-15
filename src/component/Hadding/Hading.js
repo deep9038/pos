@@ -8,16 +8,37 @@ import {IoFastFoodOutline} from 'react-icons/io5'
 import AddOn from "./AddonModal/AddOn";
 import {BiCategoryAlt} from 'react-icons/bi'
 import AddCatagory from "./Addcatagory/AddCatagory";
-
-const Hading = ({setAddItem}) => {
+import './HadigLogo.css'
+const   Hading = ({setAddItem,addItem}) => {
   const [ opencart,setOpenCart]=useState(false)
   const [ openAddon,setopenAddon]=useState(false)
 
+  let handelCatogaryClick=()=>
+  {
+    setOpenCart(!opencart)
+    setopenAddon(false)
+    setAddItem(false)
+  }
+
+  let handelAddonClick=()=>
+  {
+    setOpenCart(false)
+    setopenAddon(!openAddon)
+    setAddItem(false)
+  }
+
+  let handelSetAddItemClick=()=>
+  {
+    setOpenCart(false)
+    setopenAddon(false)
+    setAddItem(!addItem)
+  }
+
   return (
     <Head>
-      <HeadLogo src={Logo} />
+      <HeadLogo className="Anim" src={Logo} />
       <HadingMau>
-      <HeadmenuItem onClick={()=>setOpenCart(true)}>
+      <HeadmenuItem onClick={handelCatogaryClick}>
       <Button
             variant="contained"
             color="primary"
@@ -31,7 +52,7 @@ const Hading = ({setAddItem}) => {
 
 
 
-      <HeadmenuItem onClick={()=>setopenAddon(true)}>
+      <HeadmenuItem onClick={handelAddonClick}>
       <Button
             variant="contained"
             color="primary"
@@ -48,7 +69,7 @@ const Hading = ({setAddItem}) => {
             variant="contained"
             color="primary"
             startIcon={<FcAddDatabase />}
-            onClick={()=>setAddItem(true)}
+            onClick={handelSetAddItemClick}
           >
             Add Item
           </Button>

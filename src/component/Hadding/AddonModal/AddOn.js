@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { AddOnModalContainer } from "./AddOnEliment";
+import { AddOnModalContainer,Buttongroup } from "./AddOnEliment";
+import ShowAddOnItem from "./ShowAddOnItem";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { TbCurrencyRupee } from "react-icons/tb";
 import Button from "@material-ui/core/Button";
 import { FButton } from "../../FormButtonEliment";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 const AddOn = ({ setopenAddon }) => {
   const [addonName, setAddonName] = useState();
@@ -30,8 +33,11 @@ const AddOn = ({ setopenAddon }) => {
       console.log(err);
      })
   };
+   
+  const notify = () => toast.success("AddOn Item is Added successfully!!");
 
   return (
+    <>
     <AddOnModalContainer
       method="post"
       action="/api/addOnItem_post"
@@ -61,10 +67,21 @@ const AddOn = ({ setopenAddon }) => {
         }}
         variant="outlined"
       />
-      <FButton type="submit" value="submit">
-        Submit
+      <Buttongroup>
+      <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}} onClick={notify}>
+        See Addon Item
       </FButton>
+      <FButton type="submit" value="submit" >
+        Submit
+        
+      </FButton>
+    
+      </Buttongroup>
+    
     </AddOnModalContainer>
+    <ShowAddOnItem></ShowAddOnItem>
+    <ToastContainer position="top-center" theme="colored" autoClose={3000} />
+    </>
   );
 };
 

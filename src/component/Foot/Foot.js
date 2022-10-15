@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {TbCurrencyRupee} from 'react-icons/tb'
 import {BsPercent} from 'react-icons/bs'
+import { useTheme } from '@material-ui/core/styles';
 const Foot = () => {
   
   const[mainValu,setMainValue]=useState() 
@@ -17,41 +18,46 @@ const Foot = () => {
   useEffect(()=>{
       setChangValu(mainValu-payebel)
   },[mainValu])
+  
+  const theme = useTheme();
+
   return (
     <FootBody>
       <Mony>
         <Typography
           variant="subtitle2"
-          gutterBottom
-          style={{ marginRight: "10px" }}
+          
+          style={{ marginRight: "10px" ,marginTop:'8px'}}
         >
-          Deposit Amount-:
+          Deposit Amount:-
         </Typography>
         <TextField
+        color="success"
         onChange={HandelAmount}
         style={{width:'60%'}}
-          label="Recived from customer"
+          label={` Ricived form customer`}
           value={mainValu}
+          
           
           name="numberformat"
           id="formatted-numberformat-input"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <TbCurrencyRupee size={23} />
+                <TbCurrencyRupee size={23}  />
               </InputAdornment>
             ),
           }}
-          variant="outlined"
+          variant="standard"
         />
       </Mony>
       <Mony>
         <Typography
           variant="subtitle2"
-          gutterBottom
-          style={{ marginRight: "10px" }}
+         
+          style={{ marginRight: "10px" ,marginTop:'8px'}}
         >
-          Chang Amount-:
+          Chang Amount:-
         </Typography>
         <TextField
         style={{width:'50%'}}
@@ -67,16 +73,16 @@ const Foot = () => {
               </InputAdornment>
             ),
           }}
-          variant="outlined"
+          variant="standard"
         />
       </Mony>
       <Mony>
         <Typography
           variant="subtitle2"
-          gutterBottom
-          style={{ marginRight: "10px" }}
+       
+          style={{ marginRight: "10px" ,marginTop:'8px'}}
         >
-          Tax Amount-:
+          Tax Amount:-
         </Typography>
         <TextField
         style={{width:'50%'}}
@@ -92,20 +98,20 @@ const Foot = () => {
               </InputAdornment>
             ),
           }}
-          variant="outlined"
+          variant="standard"
         />
       </Mony>
       <Mony>
         <Typography
           variant="subtitle2"
-          gutterBottom
-          style={{ marginRight: "10px" }}
+       
+          style={{ marginRight: "10px" ,marginTop:'8px'}}
         >
-          Paybel Amount-:
+          Paybel Amount:-
         </Typography>
         <TextField
         style={{width:'50%'}}
-          label=" Payable for customer"
+          label="Payable for customer"
           value={payebel}
           disabled
           name="numberformat"
@@ -117,7 +123,7 @@ const Foot = () => {
               </InputAdornment>
             ),
           }}
-          variant="outlined"
+          variant="standard"
         />
       </Mony>
 

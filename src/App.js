@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./App.css";
+// import './App5.css'
+import './Mainstylr.css'
 import Body from "./component/Body/Body";
 import Foot from "./component/Foot/Foot";
 import Hading from "./component/Hadding/Hading";
@@ -28,8 +29,8 @@ function App() {
 
   
   return (
-    <>
-      <Hading setAddItem={setAddItem} />
+    <div className="maiDdiv">
+      <Hading setAddItem={setAddItem} addItem={addItem}/>
       <Body
         OpenMod={setOpenItemModal}
         setOpenItemModal={setOpenItemModal}
@@ -40,7 +41,7 @@ function App() {
       />
       <Foot />
       {openItrmModal ? <ItemModal setOpenItemModal={setOpenItemModal} /> : ""}
-    </>
+    </div>
   );
 }
 

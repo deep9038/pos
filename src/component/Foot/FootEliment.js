@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const FootBody = styled.div`
-height:13vh ;
+height:11vh ;
 margin-top:10px ;
 background-color:white ;
 border-radius:10px ;

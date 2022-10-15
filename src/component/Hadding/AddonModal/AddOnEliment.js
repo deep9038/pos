@@ -14,3 +14,8 @@ box-shadow: 6px 13px 18px -4px rgba(0,0,0,0.75);
 z-index:2;
 background-color:rgb(235, 235, 235);
 `
+export const Buttongroup=styled.div`
+display:flex ;
+justify-content: space-between;
+width:100% ;
+`

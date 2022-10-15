@@ -16,3 +16,9 @@ flex-direction:row ;
 justify-content:space-between ;
 
 `
+export const Buttongroup=styled.div`
+display:flex ;
+justify-content: space-around;
+width:70% ;
+margin-top:20px ;
+`

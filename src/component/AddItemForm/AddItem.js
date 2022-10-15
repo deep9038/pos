@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { AddItemContainer, ImgInputContainer } from "./AddItemEliment";
+import { AddItemContainer, ImgInputContainer,Buttongroup } from "./AddItemEliment";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import { FcCompactCamera } from "react-icons/fc";
@@ -74,7 +74,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
     setAddItem(false);
     console.log(selectCat);
     console.log(addAdon);
-    let baalarArray = addAdon
+    
     axios
       .post(
         `${baseUrl}/api/addItem_post`,
@@ -82,7 +82,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
           Image: additemImg,
           itemName: additemName,
           itemCategory: catid,
-          itemAddOn:baalarArray,
+          itemAddOn:addAdon,
           itemType: addItemType,
           itemPrice: additemPrice,
         },
@@ -209,9 +209,15 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
         </FormGroup>
       </FormControl>
 
-      <FButton type="submit" value="submit">
+      <Buttongroup>
+     <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}}>
+        See All Items
+      </FButton>
+     <FButton type="submit" value="submit">
         Submit
       </FButton>
+      
+     </Buttongroup>
     </AddItemContainer>
   );
 };

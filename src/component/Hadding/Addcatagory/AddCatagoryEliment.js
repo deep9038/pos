@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const Addcatagory =styled.form`
+export const Addcatagory = styled.form`
 position:absolute ;
 display:flex ;
-top:50px ;
+top:100% ;
 right:24rem ;
 padding:10px ;
 flex-direction:column ;
@@ -22,3 +22,9 @@ flex-direction:row ;
 justify-content:space-between ;
 
 `
+export const Buttongroup=styled.div`
+display:flex ;
+justify-content: space-between;
+width:100% ;
+`
+

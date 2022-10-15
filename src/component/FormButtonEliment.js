@@ -6,7 +6,9 @@ width:60px ;
 border:none ;
 border-radius:5px ;
 background-color:green ;
-color:black ;
+color:white;
+font-weight:bolder;
+letter-spacing:1px ;
 
 font-size:auto;
 `
