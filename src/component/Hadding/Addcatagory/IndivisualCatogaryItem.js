@@ -1,12 +1,13 @@
 import React from 'react'
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai'
 import "bootstrap/dist/css/bootstrap.css";
+import Switch from "@material-ui/core/Switch";
 const IndivisualCatogaryItem = () => {
   return (
    <>
-   <div className='items-info' style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+   <div className='items-info' style={{display:"flex",justifyContent:"space-between",alignItems:"center",backgroundColor:'darkgray',padding:'4px',borderRadius:'4px',marginBottom:'5px'}}>
                 <div className='product-img'>
-                    <img src="https://auspost.com.au/content/dam/corp/travel-essentials/destination-guides/italy/photo-antipasto-platter-italian-food.jpg" height="50px" alt='product' />
+                    <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" height="50px" alt='product' />
                 </div>
                 <div className='title' height="50px" style={{fontSize:"10px"}}>
                     <span>Name</span><br></br>
@@ -15,9 +16,10 @@ const IndivisualCatogaryItem = () => {
                 </div>
 
                 
-                <div className='button-item' style={{width:"100px",display:"flex",justifyContent:"space-between"}}>
-                   <button  className='btn btn-warning' width="100px" height="50px"> <AiFillEdit /></button>
-                   <button  className='btn btn-danger'> <AiFillDelete /></button>
+                <div className='button-item' style={{width:"100px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                   <h5 style={{cursor: 'pointer',color:"rgb(255, 230, 0)"}}> <AiFillEdit /></h5>
+                   <h5 style={{cursor: 'pointer',color:"red",marginLeft:"10px"}}> <AiFillDelete /></h5>
+                   <h5><Switch/>  </h5>
                     
                 </div>   
 

@@ -17,9 +17,9 @@ const IndivisualAddOnItem = () => {
                     <h3>₹ 500.00</h3>
                 </div>
                  
-                 <div className='button-item' style={{width:"100px",display:"flex",justifyContent:"space-between"}}>
-                    <button  className='btn btn-warning' width="100px" height="50px"> <AiFillEdit /></button>
-                    <button  className='btn btn-danger'> <AiFillDelete /></button>
+                 <div className='button-item' style={{width:"80px",display:"flex",justifyContent:"space-between"}}>
+                 <h3 style={{cursor: 'pointer',color:"orangered"}}> <AiFillEdit /></h3>
+                   <h3 style={{cursor: 'pointer',color:"red"}}> <AiFillDelete /></h3>
                      
                  </div>   
  

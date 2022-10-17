@@ -7,11 +7,13 @@ import Foot from "./component/Foot/Foot";
 import Hading from "./component/Hadding/Hading";
 import ItemModal from "./component/ItemModal/ItemModal";
 
+
 function App() {
   const [openItrmModal, setOpenItemModal] = useState(false);
   const [addItem, setAddItem] = useState(false);
   const [ctagoryes, setCtagoryes] = useState([]);
   const [addOn,setAddOn] = useState([]);
+  const [openAllItem,setOpenAllItem]=useState(false)
 
   const baseURLForCat = "http://192.168.29.146:2000/api/addCategory";
   const baseURLForAddOn = "http://192.168.29.146:2000/api/addOnItem";
@@ -30,8 +32,10 @@ function App() {
   
   return (
     <div className="maiDdiv">
-      <Hading setAddItem={setAddItem} addItem={addItem}/>
+      <Hading setAddItem={setAddItem} addItem={addItem} />
       <Body
+      setOpenAllItem={setOpenAllItem}
+      openAllItem={openAllItem}
         OpenMod={setOpenItemModal}
         setOpenItemModal={setOpenItemModal}
         addItem={addItem}
@@ -41,6 +45,7 @@ function App() {
       />
       <Foot />
       {openItrmModal ? <ItemModal setOpenItemModal={setOpenItemModal} /> : ""}
+      
     </div>
   );
 }

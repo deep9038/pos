@@ -19,7 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { FButton } from "../FormButtonEliment";
 import axios from "axios";
 
-const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
+const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) => {
   const [additemImg, setAddItemIg] = useState();
   const [additemName, setAdditemName] = useState();
   const [additemPrice, setAddItemPrice] = useState();
@@ -210,7 +210,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn }) => {
       </FormControl>
 
       <Buttongroup>
-     <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}}>
+     <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}} onClick={()=>setOpenAllItem(true)}>
         See All Items
       </FButton>
      <FButton type="submit" value="submit">

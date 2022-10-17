@@ -18,11 +18,21 @@ import AddedItems from "./AddedItems";
 import ItemButtons from "./ItemButtons";
 import NoContect from "./NoContect";
 import AddItem from "../AddItemForm/AddItem";
-const Body = ({ OpenMod, addItem,setAddItem,SubmitItem,ctagoryes,addOn}) => {
+import ShowAll_Item from "../AddItemForm/ShowAll_Item";
+const Body = ({
+  OpenMod,
+  addItem,
+  setAddItem,
+  SubmitItem,
+  ctagoryes,
+  addOn,
+  setOpenAllItem,
+  openAllItem,
+}) => {
   const [customerSurh, setCustomerSurch] = useState(true);
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
-  const [surch,setSurch]=useState('')
+  const [surch, setSurch] = useState("");
   const HandelRadio = (e) => {
     setAdd(e.target.value);
     if (e.target.value === "Customar") {
@@ -35,14 +45,25 @@ const Body = ({ OpenMod, addItem,setAddItem,SubmitItem,ctagoryes,addOn}) => {
   return (
     <BodyDiv>
       <BodyItemPanelContainer container>
-        <Surchbar setSurch={setSurch} surch={surch}/>
-        <ItemSection OpenMod={OpenMod} surch={surch} ctagoryes={ctagoryes} />
+        <Surchbar setSurch={setSurch} surch={surch} />
+        {openAllItem ? (
+          
+          <ShowAll_Item />
+        ) : (
+          <ItemSection OpenMod={OpenMod} surch={surch} ctagoryes={ctagoryes} />
+        )}
       </BodyItemPanelContainer>
 
       <BodyEditPanelContainer container>
         <h2 style={{ textAlign: "center" }}> Panal </h2>
         {addItem ? (
-          <AddItem ctagoryes={ctagoryes} SubmitItem={SubmitItem} setAddItem={setAddItem} addOn={addOn}/>
+          <AddItem
+            ctagoryes={ctagoryes}
+            SubmitItem={SubmitItem}
+            setAddItem={setAddItem}
+            addOn={addOn}
+            setOpenAllItem={setOpenAllItem}
+          />
         ) : (
           <EditPanel>
             <FormControl>
