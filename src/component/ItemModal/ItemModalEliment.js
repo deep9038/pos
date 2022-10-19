@@ -23,7 +23,7 @@ align-items:center ;
 position:relative ;
 width:30%;
 box-shadow: 3px 4px 20px 0px rgba(0,0,0,0.75);
-background-color:white ;
+background: linear-gradient(180deg, rgba(255,68,0,1) 0%, rgba(255,255,255,1) 65%);
 `
 
 export const ModalImgContainer= styled.div`

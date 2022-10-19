@@ -12,7 +12,7 @@ import Chip from '@material-ui/core/Chip';
 // import {AiFillFileAdd} from 'react-icons/ai'
 const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
   
-  const imgURL = "http://192.168.29.146:2000/";
+ 
   
   return (
     <ItemContainer>

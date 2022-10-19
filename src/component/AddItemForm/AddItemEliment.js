@@ -19,6 +19,6 @@ justify-content:space-between ;
 export const Buttongroup=styled.div`
 display:flex ;
 justify-content: space-around;
-width:70% ;
+width:100% ;
 margin-top:20px ;
 `

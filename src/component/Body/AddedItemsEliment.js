@@ -5,8 +5,8 @@ export const AddedItemContainer = styled.div`
     width:100%;
     max-height:200px ;
     overflow-y:scroll;
-    
-    background-color:#fff ;
+    padding:10px ;
+    background:linear-gradient(rgba(135, 206, 235,0.2)) ;
 `
 export const ItemMenu = styled.div`
 display:flex ;

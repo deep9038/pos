@@ -55,7 +55,7 @@ const Body = ({
       </BodyItemPanelContainer>
 
       <BodyEditPanelContainer container>
-        <h2 style={{ textAlign: "center" }}> Panal </h2>
+        <h2 style={{ textAlign: "center",fontWeight:"bolder" }}> Panal </h2>
         {addItem ? (
           <AddItem
             ctagoryes={ctagoryes}

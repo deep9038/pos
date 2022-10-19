@@ -41,7 +41,7 @@ const   Hading = ({setAddItem,addItem}) => {
       <HeadmenuItem onClick={handelCatogaryClick}>
       <Button
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(75, 75, 255)",color:"white"}}
             startIcon={<BiCategoryAlt/>}
             
           >
@@ -55,7 +55,7 @@ const   Hading = ({setAddItem,addItem}) => {
       <HeadmenuItem onClick={handelAddonClick}>
       <Button
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(75, 75, 255)",color:"white"}}
             startIcon={<IoFastFoodOutline/>}
             
           >
@@ -67,7 +67,7 @@ const   Hading = ({setAddItem,addItem}) => {
         <HeadmenuItem>
           <Button
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(75, 75, 255)",color:"white"}}
             startIcon={<FcAddDatabase />}
             onClick={handelSetAddItemClick}
           >
@@ -77,7 +77,7 @@ const   Hading = ({setAddItem,addItem}) => {
         <HeadmenuItem>
           <Button
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(75, 75, 255)",color:"white"}}
             startIcon={<BsClockHistory/>}
           >
             History

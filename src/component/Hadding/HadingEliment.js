@@ -9,7 +9,8 @@ border-radius:10px ;
 /* margin-top:5px; */
 margin-bottom:10px;
 align-items:center;
-background-color:rgba(0, 0,0);
+background-color:black ;
+/* background: linear-gradient(yellow,white); */
 `
 export const HeadLogo = styled.img`
   height: 55px;
@@ -25,6 +26,7 @@ justify-content:center ;
 align-items:center;
 height:100%;
 margin-left:auto ;
+
 `
 export const HeadmenuItem = styled.span`
 padding:0 10px ;

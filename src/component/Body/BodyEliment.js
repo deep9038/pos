@@ -9,6 +9,7 @@ grid-template-columns:70% 30%;
 border-radius:10px ;
 justify-content:space-around;
 margin-right:auto ;
+ 
 
 ` 
 export const BodyItemPanelContainer= styled.div`
@@ -19,13 +20,15 @@ export const BodyItemPanelContainer= styled.div`
  align-items:flex-start ;
  background-color:white ;
  width:100% ;
+ background: white;
 
 `
 export const BodyEditPanelContainer = styled.div`
 padding: 10px;
 border-radius:10px;
-background-color:white ;
+background:white;
 margin:10px ;
+
 `
 export const EditPanel = styled.div`
     display:flex;

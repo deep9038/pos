@@ -27,7 +27,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
   const [addItemType, setItemType] = useState();
   const [addAdon, setAddAddon] = useState([]);
   const [selectCat, setSelectCat] = useState();
-
+  var formData = new FormData();
   const handlitemTye = (e) => {
     setItemType(e.target.value);
     console.log(e.target.value);
@@ -42,17 +42,14 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
       setAddAddon([...addAdon, e.target.id]);
     }else{
       let curret = addAdon.indexOf(id)
-     
       aindex.push(curret)
-      console.log(aindex);
-      // for(var i=0;i<addAdon.length;i++){
-      //   if()
-      // }
-      addAdon.splice(curret,1)
-      
-      console.log(addAdon);
-      console.log(curret);
+      addAdon.splice(curret,1) 
     }
+    
+    for(let i=0; i<addAdon.length;i++){
+      formData.append(`array_php_side[${i}]`,addAdon[i])
+    }
+
   };
 
   useEffect(() => {
@@ -82,7 +79,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
           Image: additemImg,
           itemName: additemName,
           itemCategory: catid,
-          itemAddOn:addAdon,
+          itemAddOn:formData,
           itemType: addItemType,
           itemPrice: additemPrice,
         },
@@ -210,6 +207,9 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
       </FormControl>
 
       <Buttongroup>
+      <FButton type="submit" value="submit" onClick={()=>setOpenAllItem(false)}>
+      Close 
+      </FButton>
      <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}} onClick={()=>setOpenAllItem(true)}>
         See All Items
       </FButton>

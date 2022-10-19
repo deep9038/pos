@@ -2,10 +2,63 @@ import React from "react";
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai'
 import "bootstrap/dist/css/bootstrap.css";
 import Switch from "@material-ui/core/Switch";
+import { fontWeight } from "@mui/system";
 
 const ShowAll_Item = () => {
   return (
     <>
+     
+     <div
+        className="items-info container-fluid"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "4px",
+          borderRadius: "4px",
+          marginBottom: "5px",
+          color:"black",
+          fontWeight:"bolder",
+          
+        }}
+      >
+        <div >
+          Image
+        </div>
+
+        <div>
+          <span>Name</span>
+          <br></br>
+        </div>
+        <div style={{boxSizig:"border-box",paddingRight:"80px"}}>
+          <span>Category</span>
+          <br></br>
+        </div>
+        <div>
+          <span>Type</span>
+          <br></br>
+        </div>
+        <div>
+            <span>Price</span>
+        </div>
+
+        <div
+          className="button-item"
+          style={{
+            width: "100px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+         
+          Controll
+        </div>
+      </div>
+
+
+
+
       <div
         className="items-info container-fluid"
         style={{
@@ -16,6 +69,9 @@ const ShowAll_Item = () => {
           padding: "4px",
           borderRadius: "4px",
           marginBottom: "5px",
+          backgroundColor:"rgb(176, 116, 232)",
+          color:"white",
+          fontWeight:"bolder"
         }}
       >
         <div className="product-img">
@@ -64,6 +120,7 @@ const ShowAll_Item = () => {
           </h5>
         </div>
       </div>
+     
     </>
   );
 };

@@ -78,14 +78,14 @@ const ItemModal = ({setOpenItemModal}) => {
             <Typography
               variant="h4"
               gutterBottom
-              style={{ marginLeft: "20px" }}
+              style={{ marginLeft: "20px",color:'#000000a8;',letterSpacing:'2px' }}
             >
               fishFry
             </Typography>
             <Typography
               variant="h6"
               gutterBottom
-              style={{ marginLeft: "20px" }}
+              style={{ marginLeft: "20px",color:'#000000a8;',letterSpacing:'2px'  }}
             >
               $344
             </Typography>

@@ -1,0 +1,107 @@
+import React from 'react'
+import "bootstrap/dist/css/bootstrap.css"
+import { Container, Row, Col } from "react-bootstrap"
+import "./Bill.css"
+
+const Bill = () => {
+    return (
+        <>
+            <Container style={{ textAlign: "center" }}>
+                <Row>
+                    <Col><h2>ROUDRA CHHAYA T.P</h2></Col>
+                </Row>
+                <Row>
+                    <Col><h5>EARLIER KURSEONG TOURIST LODGDE</h5></Col>
+                </Row>
+                <Row>
+                    <Col><h5>W.B.T.D.C.LTD. KURSEONG.PH:0354-2345608</h5></Col>
+                </Row>
+                <Row>
+                    <Col>FSSAI LICENCE NO.12817006000309</Col>
+                </Row>
+                <Row>
+                    <Col>GSTIN:19AAACW30910ZL.SAC  CODE 0441067</Col>
+                </Row>
+            </Container>
+            <Container style={{ marginTop: "20px", textAlign: "center" }}>
+
+                <h4> ............................................................CASH/BILL..............................................................</h4>
+
+            </Container>
+
+            <Container style={{ display: "flex", justifyContent: "center", alignIems: "center", marginTop: "10px" }}>
+                <table class="table table-dark ">
+                    <thead>
+                        <tr>
+                            <th scope="col">DESCRIPTION</th>
+                            <th scope="col" style={{ textAlign: "right" }}>QTY</th>
+                            <th scope="col" style={{ textAlign: "right" }}>Rate</th>
+                            <th scope="col" style={{ textAlign: "right" }}>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <th scope="row">Rice</th>
+                            <td style={{ textAlign: "right" }}>5.00</td>
+                            <td style={{ textAlign: "right" }}>60.00</td>
+                            <td style={{ textAlign: "right" }}>300.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">FISH CHIP</th>
+                            <td style={{ textAlign: "right" }}>5.00</td>
+                            <td style={{ textAlign: "right" }}>60.00</td>
+                            <td style={{ textAlign: "right" }}>300.00</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">EGG CURRY</th>
+                            <td style={{ textAlign: "right" }}>5.00</td>
+                            <td style={{ textAlign: "right" }}>60.00</td>
+                            <td style={{ textAlign: "right" }}>300.00</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">DALL</th>
+                            <td style={{ textAlign: "right" }}>5.00</td>
+                            <td style={{ textAlign: "right" }}>60.00</td>
+                            <td style={{ textAlign: "right" }}>300.00</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </Container>
+            <Container className='gstdot' style={{textAlign:"center"}}><h4>............................................................................................................................................</h4></Container>
+            <Container style={{ display: "flex", justifyContent: "center", alignIems: "center", marginTop: "10px" }}>
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">GST</th>
+                            <th scope="col" style={{ textAlign: "right" }}>@ 2.50% ON</th>
+                            <th scope="col" style={{ textAlign: "right" }}>966.00</th>
+                            <th scope="col" style={{ textAlign: "right" }}>24.14</th>
+                        </tr>
+
+                    </thead>
+
+                </table>
+            </Container>
+
+            <Container style={{ display: "flex", justifyContent: "center", alignIems: "center", marginTop: "10px" }}>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">TOTAL AMOUNT :-</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col" style={{ textAlign: "right" }}>1014.00</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </Container>
+
+        </>
+    )
+}
+
+export default Bill

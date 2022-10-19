@@ -22,6 +22,7 @@ const AddCatagory = ({ setOpenCart }) => {
   const handelsubmit = (e) => {
     e.preventDefault();
     setOpenCart(false);
+    console.log(catImag);
     axios
       .post(
         `${baseUrl}/api/addCategory_post`,

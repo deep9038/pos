@@ -2,7 +2,9 @@ import styled from "styled-components";
 export const FootBody = styled.div`
 height:11vh ;
 margin-top:10px ;
-background-color:white ;
+
+
+background:white ;
 border-radius:10px ;
 display:grid;
 grid-template-columns:repeat(4,1fr) ;

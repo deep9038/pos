@@ -3,6 +3,10 @@ import { AddOnModalContainer,Buttongroup } from "./AddOnEliment";
 import ShowAddOnItem from "./ShowAddOnItem";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import FormControl from "@material-ui/core/FormControl";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import FormHelperText  from "@material-ui/core/FormHelperText";
+import InputLabel  from "@material-ui/core/InputLabel";
 import { TbCurrencyRupee } from "react-icons/tb";
 import Button from "@material-ui/core/Button";
 import { FButton } from "../../FormButtonEliment";
@@ -52,7 +56,7 @@ const AddOn = ({ setopenAddon }) => {
         value={addonName}
         style={{ width: "100%", marginBottom: "15px" }}
       />
-      <TextField
+      {/* <TextField
         style={{ marginBottom: "10px" }}
         label="Price"
         type="number"
@@ -61,13 +65,24 @@ const AddOn = ({ setopenAddon }) => {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <TbCurrencyRupee size={15} />
+              <TbCurrencyRupee size={20} />
             </InputAdornment>
           ),
         }}
         variant="outlined"
-      />
-      <Buttongroup>
+      /> */}
+    <FormControl fullWidth sx={{ m: 1 }}>
+          <InputLabel htmlFor="outlined-adornment-amount" style={{margin:"5px",fontWeight:"bolder",color:"black"}}>Price</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-amount"
+            value={addonPrice}
+            onChange={(e) => setAddonPrice(e.target.value)}
+            startAdornment={<InputAdornment position="start"> <TbCurrencyRupee size={20} /></InputAdornment>}
+            label="Amount"
+          />
+        </FormControl>
+
+        <Buttongroup>
       <FButton type="button" value="submit" style={{backgroundColor:"blueviolet",width:"150px"}} onClick={notify}>
         See Addon Item
       </FButton>
