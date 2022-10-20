@@ -47,7 +47,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
     }
     
     for(let i=0; i<addAdon.length;i++){
-      formData.append(`array_php_side[${i}]`,addAdon[i])
+      formData.append(`[${i}]`,addAdon[i])
     }
 
   };

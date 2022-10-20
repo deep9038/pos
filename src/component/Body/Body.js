@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BodyDiv,
   BodyItemPanelContainer,
@@ -19,9 +19,10 @@ import ItemButtons from "./ItemButtons";
 import NoContect from "./NoContect";
 import AddItem from "../AddItemForm/AddItem";
 import ShowAll_Item from "../AddItemForm/ShowAll_Item";
+
 const Body = ({
-  OpenMod,
   addItem,
+  item,
   setAddItem,
   SubmitItem,
   ctagoryes,
@@ -33,6 +34,7 @@ const Body = ({
   const [add, setAdd] = useState("");
   const [openCustomerAdd, setOpenCustomeradd] = useState(false);
   const [surch, setSurch] = useState("");
+
   const HandelRadio = (e) => {
     setAdd(e.target.value);
     if (e.target.value === "Customar") {
@@ -42,6 +44,10 @@ const Body = ({
     }
     console.log(customerSurh);
   };
+
+  
+
+
   return (
     <BodyDiv>
       <BodyItemPanelContainer container>
@@ -50,7 +56,7 @@ const Body = ({
           
           <ShowAll_Item />
         ) : (
-          <ItemSection OpenMod={OpenMod} surch={surch} ctagoryes={ctagoryes} />
+          <ItemSection  surch={surch} item={item} ctagoryes={ctagoryes} />
         )}
       </BodyItemPanelContainer>
 

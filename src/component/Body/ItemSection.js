@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import { ItemContainer, ItemContainerOverFlow,ItemPrice, Veg } from "./ItemSectionEliment";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -8,19 +8,45 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Chip from '@material-ui/core/Chip';
+import ItemModal from "../ItemModal/ItemModal";
+import _ from "lodash";
 // import Button from "@material-ui/core/Button";
 // import {AiFillFileAdd} from 'react-icons/ai'
-const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
-  
+const ItemSection = ({surch,ctagoryes,item}) => {
+const [openItrmModal, setOpenItemModal] = useState(false);
+var IcItems= []
+var DItems= []
+
+  for(let i=0;i<item.length;i++){
+    // console.log(`eydekho array${i}`,  item[i].itemCategory._id);
+    if(item[i].itemCategory !== undefined){
+      var x  =item[i].itemCategory;
+      // console.log('x',x);
+      IcItems.push(x);
+
+    }else{
+      // console.log('y',item[i]);
+      let y = item[i];
+      DItems.push(y);
+
+    }
+    
+  }
+  console.log('IcItems',IcItems);
+  // console.log('DItems',DItems);
  
-  
+  var non_duplidated_data = _.uniq(IcItems,IcItems.categoryName)
+  console.log(non_duplidated_data);
+ 
   return (
+    <>
     <ItemContainer>
       <ItemContainerOverFlow>
         {ctagoryes.filter(item => item.Active === true).filter(item => item.categoryName.includes(surch))
           .map((filtered, ind) => {
             return (
-              <Card key={ind} style={{ margin: "5px", height: "168px",width:"130px",marginBottom:'10px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>OpenMod(true)}>
+              <>
+              <Card key={ind} style={{ margin: "5px", height: "168px",width:"130px",marginBottom:'10px' , boxShadow:'rgb(0 0 0 / 40%) 1px 3px 5px 3px' }} onClick={()=>setOpenItemModal(true)}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -47,7 +73,7 @@ const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
                     >
                        <p style={{margin:'0'}}>West bengal Famous food</p>
                     </Typography>
-                    <ItemPrice style={{marginTop:"10px",backgroundColor:"rgba(0, 0, 0,0.4)",height:'50px'}}>
+                    <ItemPrice style={{marginTop:"10px",background:'linear-gradient(180deg, rgba(255,115,65,1) 64%, rgba(247,247,247,1) 100%)',height:'50px'}}>
                     <Typography gutterBottom variant="h5" style={{marginBottom:'0',marginLeft:'0',color:"white",fontSize:'12px',fontWeight:"bolder"}}  component="div">
                      <span style={{color:"white",marginLeft:"8px",fontSize:"13px"}}> ₹ </span>400<span style={{backgroundColor:"blueviolet",color:"white",borderRadius:"10px",padding:"6px",marginLeft:'10px'}}>20% off</span> 
                     </Typography>
@@ -68,10 +94,15 @@ const ItemSection = ({OpenMod ,surch,ctagoryes}) => {
                   </Button>
                 </CardActions> */}
               </Card>
+              
+              </>
             );
           })}
       </ItemContainerOverFlow>
+      
     </ItemContainer>
+    {openItrmModal ? <ItemModal setOpenItemModal={setOpenItemModal} /> : ""}
+    </>
   );
 };
 
