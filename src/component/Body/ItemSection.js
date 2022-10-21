@@ -35,8 +35,7 @@ var DItems= []
   console.log('IcItems',IcItems);
   // console.log('DItems',DItems);
  
-  var non_duplidated_data = _.uniq(IcItems,IcItems.categoryName)
-  console.log(non_duplidated_data);
+  console.log();
  
   return (
     <>
