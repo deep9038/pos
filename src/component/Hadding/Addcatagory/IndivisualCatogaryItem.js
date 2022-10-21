@@ -2,17 +2,18 @@ import React from 'react'
 import {AiFillEdit,AiFillDelete} from 'react-icons/ai'
 import "bootstrap/dist/css/bootstrap.css";
 import Switch from "@material-ui/core/Switch";
-const IndivisualCatogaryItem = () => {
+const IndivisualCatogaryItem = ({item}) => {
   return (
    <>
    <div className='items-info' style={{display:"flex",justifyContent:"space-between",alignItems:"center",backgroundColor:'darkgray',padding:'4px',borderRadius:'4px',marginBottom:'5px'}}>
                 <div className='product-img'>
-                    <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" height="50px" alt='product' />
+                    <img src={`http://192.168.29.146:2000${item.categoryImage[0].path.slice(6)}`} height="50px" alt='product' />
                 </div>
-                <div className='title' height="50px" style={{fontSize:"10px"}}>
-                    <span>Name</span><br></br>
-                    <span>Category :-</span><br></br>
-                    <span>West bengal Famous food</span><br></br>
+                <div className='title' height="50px" style={{fontSize:"16px"}}>
+                <span>Category :-</span><br></br>
+
+                    <span>{item.categoryName}</span><br></br>
+                    
                 </div>
 
                 

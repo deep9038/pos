@@ -13,9 +13,10 @@ import { FButton } from "../../FormButtonEliment";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
-const AddOn = ({ setopenAddon }) => {
+const AddOn = ({ setopenAddon,item }) => {
   const [addonName, setAddonName] = useState();
   const [addonPrice, setAddonPrice] = useState();
+  const [openAllAddon,setAllAddo ]=useState(false)
   const baseUrl = "http://192.168.29.146:2000";
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   const handelAddonsubmit = (e) => {
@@ -38,7 +39,9 @@ const AddOn = ({ setopenAddon }) => {
      })
   };
    
-  const notify = () => toast.success("AddOn Item is Added successfully!!");
+  const notify = () =>{
+    setAllAddo(!openAllAddon)
+  } ;
 
   return (
     <>
@@ -94,7 +97,8 @@ const AddOn = ({ setopenAddon }) => {
       </Buttongroup>
     
     </AddOnModalContainer>
-    <ShowAddOnItem></ShowAddOnItem>
+    {openAllAddon && <ShowAddOnItem item={item}/> }
+    
     <ToastContainer position="top-center" theme="colored" autoClose={3000} />
     </>
   );

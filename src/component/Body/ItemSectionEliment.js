@@ -4,7 +4,7 @@ export const ItemContainer = styled.div`
   height: 60vh;
 
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
 
   border-radius: 10px;
 `;

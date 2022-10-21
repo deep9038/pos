@@ -23,6 +23,7 @@ import ShowAll_Item from "../AddItemForm/ShowAll_Item";
 const Body = ({
   addItem,
   item,
+  setOpenBill,
   setAddItem,
   SubmitItem,
   ctagoryes,
@@ -45,16 +46,13 @@ const Body = ({
     console.log(customerSurh);
   };
 
-  
-
-
   return (
     <BodyDiv>
       <BodyItemPanelContainer container>
         <Surchbar setSurch={setSurch} surch={surch} />
         {openAllItem ? (
           
-          <ShowAll_Item />
+          <ShowAll_Item item={item} />
         ) : (
           <ItemSection  surch={surch} item={item} ctagoryes={ctagoryes} />
         )}
@@ -100,7 +98,7 @@ const Body = ({
                 ""
               )}
               <AddedItems />
-              <ItemButtons />
+              <ItemButtons setOpenBill={setOpenBill} />
             </FormControl>
           </EditPanel>
         )}

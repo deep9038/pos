@@ -2,7 +2,7 @@ import React from "react";
 
 import "bootstrap/dist/css/bootstrap.css";
 import IndivisualCatogaryItem from "./IndivisualCatogaryItem";
-const ShowCatogary = () => {
+const ShowCatogary = ({ctagoryes}) => {
   return (
     <div
       style={{
@@ -20,29 +20,14 @@ const ShowCatogary = () => {
         zIndex: "10",
       }}
     >
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
-      <IndivisualCatogaryItem />
+      {ctagoryes.map((item)=>{
+        console.log(item);
+        return(
+        <IndivisualCatogaryItem item={item} />
+        )
+      })}
+      
+     
 
     </div>
   );

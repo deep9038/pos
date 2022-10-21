@@ -13,10 +13,11 @@ import { FButton } from "../../FormButtonEliment";
 import axios from "axios";
 import { Translate } from "@material-ui/icons";
 import ShowCatogary from "./ShowCatogary";
-const AddCatagory = ({ setOpenCart }) => {
+const AddCatagory = ({ setOpenCart,ctagoryes }) => {
   const [catImag, setCatimge] = useState();
   const [catName, setCatName] = useState();
   const [showCatogaryItem, setShowCatogaryItem] = useState(false);
+  // const [ allCat,setAllcat]=useState(false)
   const baseUrl = "http://192.168.29.146:2000";
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   const handelsubmit = (e) => {
@@ -95,7 +96,8 @@ const AddCatagory = ({ setOpenCart }) => {
           </FButton>
         </Buttongroup>
       </Addcatagory>
-      <ShowCatogary/>
+      { showCatogaryItem && <ShowCatogary ctagoryes={ctagoryes}/> }
+      
 
       
     </>

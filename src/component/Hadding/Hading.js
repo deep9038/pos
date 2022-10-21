@@ -9,7 +9,7 @@ import AddOn from "./AddonModal/AddOn";
 import {BiCategoryAlt} from 'react-icons/bi'
 import AddCatagory from "./Addcatagory/AddCatagory";
 import './HadigLogo.css'
-const   Hading = ({setAddItem,addItem}) => {
+const   Hading = ({setAddItem,addItem,ctagoryes,item}) => {
   const [ opencart,setOpenCart]=useState(false)
   const [ openAddon,setopenAddon]=useState(false)
 
@@ -48,7 +48,7 @@ const   Hading = ({setAddItem,addItem}) => {
             Add Catagory
           </Button>
       </HeadmenuItem>
-      {opencart?<AddCatagory setOpenCart={setOpenCart}/>:''}
+      {opencart?<AddCatagory ctagoryes={ctagoryes} setOpenCart={setOpenCart}/>:''}
 
 
 
@@ -62,7 +62,7 @@ const   Hading = ({setAddItem,addItem}) => {
             Add Addon
           </Button>
       </HeadmenuItem>
-      {openAddon? <AddOn setopenAddon={setopenAddon} />:''}
+      {openAddon? <AddOn setopenAddon={setopenAddon} item={item} />:''}
       
         <HeadmenuItem>
           <Button

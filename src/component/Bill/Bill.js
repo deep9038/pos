@@ -2,10 +2,21 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.css"
 import { Container, Row, Col } from "react-bootstrap"
 import "./Bill.css"
+import Button from '@material-ui/core/Button'
+import {IoMdArrowRoundBack} from 'react-icons/io'
+import {AiOutlinePrinter} from 'react-icons/ai'
 
-const Bill = () => {
+const Bill = ({setOpenBill}) => {
     return (
         <>
+        <button style={{height:'60px',width:'100px',backgroundColor:'gray',margin:'10px',border:'none',borderRadius:'4px'}}>
+        <IoMdArrowRoundBack style={{margin:'auto'}} size={30} onClick={()=>setOpenBill(false)} />
+        </button>
+           <button style={{height:'60px',width:'100px',backgroundColor:'#6460d6',margin:'10px',border:'none',borderRadius:'4px',float:'right'}}>
+            <AiOutlinePrinter style={{margin:'auto',color:'white'}} size={30}  />
+           </button>
+
+
             <Container style={{ textAlign: "center" }}>
                 <Row>
                     <Col><h2>ROUDRA CHHAYA T.P</h2></Col>
