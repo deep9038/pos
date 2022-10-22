@@ -18,7 +18,7 @@ const AddCatagory = ({ setOpenCart,ctagoryes }) => {
   const [catName, setCatName] = useState();
   const [showCatogaryItem, setShowCatogaryItem] = useState(false);
   // const [ allCat,setAllcat]=useState(false)
-  const baseUrl = "http://192.168.29.146:2000";
+  const baseUrl = "http://127.0.0.1:2000";
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   const handelsubmit = (e) => {
     e.preventDefault();

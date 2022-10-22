@@ -17,7 +17,7 @@ const AddOn = ({ setopenAddon,item }) => {
   const [addonName, setAddonName] = useState();
   const [addonPrice, setAddonPrice] = useState();
   const [openAllAddon,setAllAddo ]=useState(false)
-  const baseUrl = "http://192.168.29.146:2000";
+  const baseUrl = "http://127.0.0.1:2000";
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   const handelAddonsubmit = (e) => {
     e.preventDefault();

@@ -63,7 +63,7 @@ const AddItem = ({ setAddItem, SubmitItem, ctagoryes, addOn ,setOpenAllItem}) =>
     setCatId(id.props.id);
   };
 
-  const baseUrl = "http://192.168.29.146:2000";
+  const baseUrl = "http://127.0.0.1:2000";
   const config = { headers: { "Content-Type": "multipart/form-data" } };
 
   const submitItem = (e) => {

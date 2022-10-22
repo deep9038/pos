@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import Typography from "@material-ui/core/Typography";
-import ItemTipeButton from "./ItemTipeButton";
+// import ItemTipeButton from "./ItemTipeButton";
+import ItemTipeButton from "../ItemModal/ItemTipeButton";
 import Button from "@material-ui/core/Button";
 import {AiOutlineClose} from 'react-icons/ai'
 import {
@@ -13,10 +14,10 @@ import {
   AddonSlider,
   AddonItems,
   TotalCostcontainer,
-} from "./ItemModalEliment";
+} from "../ItemModal/ItemModalEliment";
 import Slide from "../Sider/Slide";
 import IconButton from '@material-ui/core/IconButton';
-const ItemModal = ({setOpenItemModal,modaldtaForcat,filtered}) => {
+const ItemModal2 = ({setOpenItemModal,filtered}) => {
   const [itemType, setItemType] = useState("");
 
   const handelItemType = (type) => {
@@ -29,26 +30,26 @@ const ItemModal = ({setOpenItemModal,modaldtaForcat,filtered}) => {
       <ModalContainer>
         <ModalBody>
           <ModalImgContainer>
-            <ModalImage src={`http://127.0.0.1:2000${filtered.categoryImage[0].path.slice(6)}`} />
+            <ModalImage src={`http://127.0.0.1:2000${filtered.Image[0].path.slice(6)}`} />
             <ModalImageText>
               <Typography
                 variant="h4"
                 gutterBottom
                 style={{ marginLeft: "20px",color:'#000000a8;',letterSpacing:'2px' }}
               >
-               {filtered.categoryName}
+               {filtered.itemName}
               </Typography>
               <Typography
                 variant="h6"
                 gutterBottom
                 style={{ marginLeft: "20px",color:'#000000a8;',letterSpacing:'2px'  }}
               >
-                $344
+                ${filtered.itemPrice}
               </Typography>
             </ModalImageText>
           </ModalImgContainer>
           <ItemTipeButton handelItemType={handelItemType} />
-          {itemType ? <Slide modaldtaForcat={modaldtaForcat} itemType={itemType} /> : ""}
+        
   
           <Typography variant="h4">Addon</Typography>
           
@@ -77,4 +78,4 @@ const ItemModal = ({setOpenItemModal,modaldtaForcat,filtered}) => {
  
 };
 
-export default ItemModal;
+export default ItemModal2

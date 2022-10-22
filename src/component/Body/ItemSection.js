@@ -15,10 +15,14 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import ItemModal from "../ItemModal/ItemModal";
 import _, { filter, set } from "lodash";
+import axios from "axios";
+import ItemModal2 from "./ItemModal2";
 // import Button from "@material-ui/core/Button";
 // import {AiFillFileAdd} from 'react-icons/ai'
 const ItemSection = ({ surch, ctagoryes, item }) => {
   const [openItrmModal, setOpenItemModal] = useState(false);
+  const [modaldtaForcat,setModaldataForcat]=useState([])
+  const [openItrmModal2,setOpenItem2Modal]=useState(false)
   var IcItems = [];
 
   for (let i = 0; i < item.length; i++) {
@@ -40,11 +44,17 @@ const ItemSection = ({ surch, ctagoryes, item }) => {
     }
     return false;
   });
-  console.log(uniq);
+
  
 
   const postItem = (e) => {
     setOpenItemModal(true);
+
+    axios.get(`http://127.0.0.1:2000/api/itemOfCategory/${e}`).then((res)=>{
+      setModaldataForcat(res.data.result)
+      console.log("cat",res.data.result);
+     
+    })
     //axios for
   };
 
@@ -52,143 +62,251 @@ const ItemSection = ({ surch, ctagoryes, item }) => {
     <>
       <ItemContainer>
         <ItemContainerOverFlow>
-          {uniq
-            .filter((item) => item.Active === true)
-            .filter(
-              (item) =>
-                item.categoryName.includes(surch) ||
-                item.itemName.includes(surch)
-            )
-            .map((filtered) => {
-              console.log(filtered._id);
-              return (
-                <>
-                  <Card
-                    key={filtered._id}
-                    style={{
-                      margin: "5px",
-                      height: "150px",
-                      width: "130px",
-                      marginBottom: "10px",
-                      boxShadow: "rgb(0 0 0 / 40%) 1px 3px 5px 3px",
-                    }}
-                    onClick={postItem}
-                  >
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="50"
-                        width="50"
-                        image={`http://192.168.29.146:2000${filtered.categoryImage[0].path.slice(
-                          6
-                        )}`}
-                        alt="fishfry Img"
-                      />
-                      <CardContent style={{ padding: "0", height: "10px" }}>
-                        <h6 style={{ margin: "0" }}>
-                          Category :-{filtered.Category}
-                        </h6>
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          style={{
-                            marginleft: "",
-                            display: "flex",
-                            justifyContent: "",
-                            alignItems: "center",
-                            marginTop: "5px",
-                            fontSize: "8px",
-                          }}
-                          component="div"
-                        >
-                          <p style={{ margin: "0", fontSize: "1rem" }}>
-                            {" "}
-                            {filtered.categoryName}
-                          </p>
-                        </Typography>
-                        <ItemPrice
-                          style={{
-                            marginTop: "10px",
-                            background:
-                              " linear-gradient(180deg, rgba(255,215,65,0.7903536414565826) 0%, rgba(255,255,255,0.8827906162464986) 100%)",
-                            height: "50px",
-                          }}
-                        >
+          {uniq.filter((item)=>item.Active === true).map((filtered) => {
+              if(filtered.categoryName){
+                if(filtered.categoryName.includes(surch)){
+                return (
+                  <>
+                    <Card
+                      key={filtered._id}
+                      style={{
+                        margin: "5px",
+                        height: "150px",
+                        width: "130px",
+                        marginBottom: "10px",
+                        boxShadow: "rgb(0 0 0 / 40%) 1px 3px 5px 3px",
+                      }}
+                      onClick={()=>postItem(filtered._id)}
+                    >
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          height="50"
+                          width="50"
+                          image={`http://127.0.0.1:2000${filtered.categoryImage[0].path.slice(
+                            6
+                          )}`}
+                          alt="fishfry Img"
+                        />
+                        <CardContent style={{ padding: "0", height: "10px" }}>
+                          <h6 style={{ margin: "0" }}>
+                            Category :-{filtered.Category}
+                          </h6>
                           <Typography
                             gutterBottom
-                            variant="h5"
+                            variant="body2"
                             style={{
-                              marginBottom: "0",
-                              marginLeft: "0",
-                              color: "black",
-                              fontSize: "12px",
-                              fontWeight: "bolder",
+                              marginleft: "",
+                              display: "flex",
+                              justifyContent: "",
+                              alignItems: "center",
+                              marginTop: "5px",
+                              fontSize: "8px",
                             }}
                             component="div"
                           >
-                            <span
-                              style={{
-                                color: "black",
-                                marginLeft: "8px",
-                                fontSize: "13px",
-                              }}
-                            >
+                            <p style={{ margin: "0", fontSize: "1rem" }}>
                               {" "}
-                              ₹{" "}
-                            </span>
-                            400
-                            <span
-                              style={{
-                                backgroundColor: "blueviolet",
-                                color: "white",
-                                borderRadius: "10px",
-                                padding: "6px",
-                                marginLeft: "10px",
-                              }}
-                            >
-                              20% off
-                            </span>
+                              {filtered.categoryName}
+                            </p>
                           </Typography>
-
-                          <Veg>
-                            <Chip
-                              label=""
-                              component="a"
-                              href="#basic-chip"
+                          <ItemPrice
+                            style={{
+                              marginTop: "10px",
+                              background:
+                                " linear-gradient(180deg, rgba(255,215,65,0.7903536414565826) 0%, rgba(255,255,255,0.8827906162464986) 100%)",
+                              height: "50px",
+                            }}
+                          >
+                            <Typography
+                              gutterBottom
+                              variant="h5"
                               style={{
-                                height: "10px",
-                                width: "10px",
-                                backgroundColor: "green",
-                                marginBottom: "7px",
+                                marginBottom: "0",
+                                marginLeft: "0",
+                                color: "black",
+                                fontSize: "12px",
+                                fontWeight: "bolder",
                               }}
-                            />
-                            <Chip
-                              label=""
-                              component="a"
-                              href="#basic-chip"
+                              component="div"
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  marginLeft: "8px",
+                                  fontSize: "13px",
+                                }}
+                              >
+                                {" "}
+                                ₹{" "}
+                              </span>
+                              400
+                              
+                            </Typography>
+  
+                            <Veg>
+                              <Chip
+                                label=""
+                                component="a"
+                                href="#basic-chip"
+                                style={{
+                                  height: "10px",
+                                  width: "10px",
+                                  backgroundColor: "green",
+                                  marginBottom: "7px",
+                                }}
+                              />
+                              <Chip
+                                label=""
+                                component="a"
+                                href="#basic-chip"
+                                style={{
+                                  height: "10px",
+                                  width: "10px",
+                                  backgroundColor: "red",
+                                }}
+                              />
+                            </Veg>
+                          </ItemPrice>
+                        </CardContent>
+                      </CardActionArea>
+                      {/* <CardActions>
+                    <Button variant="contained" color="primary"  startIcon={<AiFillFileAdd style={{color:'white'}}/>} >
+                      Add
+                    </Button>
+                  </CardActions> */}
+                    </Card>
+                    {openItrmModal ? (
+                      <ItemModal setOpenItemModal={setOpenItemModal} modaldtaForcat={modaldtaForcat}  filtered={filtered}/>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                );}
+              }else{
+                if(filtered.itemName.includes(surch)){
+                return(
+                  <>
+                    <Card
+                      key={filtered._id}
+                      style={{
+                        margin: "5px",
+                        height: "150px",
+                        width: "130px",
+                        marginBottom: "10px",
+                        boxShadow: "rgb(0 0 0 / 40%) 1px 3px 5px 3px",
+                      }}
+                      onClick={postItem}
+                    >
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          height="50"
+                          width="50"
+                          image={`http://127.0.0.1:2000${filtered.Image[0].path.slice(
+                            6
+                          )}`}
+                          alt="fishfry Img"
+                        />
+                        <CardContent style={{ padding: "0", height: "10px" }}>
+                          <h6 style={{ margin: "0" }}>
+                            Item :-
+                          </h6>
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            style={{
+                              marginleft: "",
+                              display: "flex",
+                              justifyContent: "",
+                              alignItems: "center",
+                              marginTop: "5px",
+                              fontSize: "8px",
+                            }}
+                            component="div"
+                          >
+                            <p style={{ margin: "0", fontSize: "1rem" }}>
+                              {" "}
+                              {filtered.itemName
+}
+                            </p>
+                          </Typography>
+                          <ItemPrice
+                            style={{
+                              marginTop: "10px",
+                              background:
+                                " linear-gradient(180deg, rgba(255,215,65,0.7903536414565826) 0%, rgba(255,255,255,0.8827906162464986) 100%)",
+                              height: "50px",
+                            }}
+                          >
+                            <Typography
+                              gutterBottom
+                              variant="h5"
                               style={{
-                                height: "10px",
-                                width: "10px",
-                                backgroundColor: "red",
+                                marginBottom: "0",
+                                marginLeft: "0",
+                                color: "black",
+                                fontSize: "12px",
+                                fontWeight: "bolder",
                               }}
-                            />
-                          </Veg>
-                        </ItemPrice>
-                      </CardContent>
-                    </CardActionArea>
-                    {/* <CardActions>
-                  <Button variant="contained" color="primary"  startIcon={<AiFillFileAdd style={{color:'white'}}/>} >
-                    Add
-                  </Button>
-                </CardActions> */}
-                  </Card>
-                  {openItrmModal ? (
-                    <ItemModal setOpenItemModal={setOpenItemModal} />
-                  ) : (
-                    ""
-                  )}
-                </>
-              );
+                              component="div"
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  marginLeft: "8px",
+                                  fontSize: "13px",
+                                }}
+                              >
+                                {" "}
+                                ₹{" "}
+                              </span>
+                              {filtered.itemPrice}
+                              
+                            </Typography>
+  
+                            <Veg>
+                              <Chip
+                                label=""
+                                component="a"
+                                href="#basic-chip"
+                                style={{
+                                  height: "10px",
+                                  width: "10px",
+                                  backgroundColor: "green",
+                                  marginBottom: "7px",
+                                }}
+                              />
+                              <Chip
+                                label=""
+                                component="a"
+                                href="#basic-chip"
+                                style={{
+                                  height: "10px",
+                                  width: "10px",
+                                  backgroundColor: "red",
+                                }}
+                              />
+                            </Veg>
+                          </ItemPrice>
+                        </CardContent>
+                      </CardActionArea>
+                      {/* <CardActions>
+                    <Button variant="contained" color="primary"  startIcon={<AiFillFileAdd style={{color:'white'}}/>} >
+                      Add
+                    </Button>
+                  </CardActions> */}
+                    </Card>
+                    {openItrmModal2 ? (
+                      <ItemModal2 setOpenItemModal={setOpenItem2Modal} filtered={filtered} />
+                    ) : (
+                      ""
+                    )}
+                  </>
+                )
+                    }
+              }
+              
             })}
         </ItemContainerOverFlow>
       </ItemContainer>

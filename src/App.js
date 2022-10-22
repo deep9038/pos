@@ -13,7 +13,7 @@ function App() {
   const [openAllItem, setOpenAllItem] = useState(false);
   const [item, setItem] = useState([]);
   const [openBill,setOpenBill]=useState(false)
-  const baseURL = "http://192.168.29.146:2000";
+  const baseURL = "http://127.0.0.1:2000";
 
   useEffect(() => {
     axios.get(`${baseURL}/api/addCategory`).then((res) => {
